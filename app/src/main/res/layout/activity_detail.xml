@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.favouriteFragment">
+   <com.google.android.material.appbar.AppBarLayout
+      android:id="@+id/appbar"
+       android:layout_width="match_parent"
+       android:layout_height="200dp">
+      <com.google.android.material.appbar.CollapsingToolbarLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+         card_view:collapsedTitleGravity="start"
+         card_view:contentScrim="@color/colorPrimary"
+         card_view:expandedTitleGravity="bottom"
+         card_view:layout_scrollFlags="exitUntilCollapsed|snap"
+         card_view:scrimAnimationDuration="2000">
+         <androidx.cardview.widget.CardView
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             card_view:cardCornerRadius="10dp"
+             android:elevation="8dp"
+             >
+            <include
+                android:visibility="gone"
+                android:id="@+id/vpEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/viewpod_empty"/>
+            <ImageView
+                android:id="@+id/ivMain"
+                android:scaleType="centerCrop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/detail_resources"
+                card_view:layout_anchor="@+id/appbar"
+                card_view:layout_anchorGravity="center" />
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_favorite_border_black_24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_gravity="end"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_share_black_24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="80dp"
+                android:layout_gravity="end"/>
+
+            <TextView
+                android:id="@+id/resourceName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sea Flower Resort"
+                android:layout_gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:layout_marginEnd="60dp"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_location_on_black_24dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="170dp"
+                android:layout_marginTop="30dp"/>
+            <TextView
+                android:id="@+id/resourceLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Koh Cha Ta, Thailand"
+                android:layout_gravity="center"
+                android:layout_marginEnd="90dp"
+                android:layout_marginTop="30dp"
+                android:textColor="#FFFFFF"/>
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="3.5"
+                android:layout_marginEnd="140dp"
+                android:layout_marginTop="55dp"
+                style="?android:attr/ratingBarStyleSmall"
+                android:progressTint="#FFFFFF"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/tvDetailRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2.1"
+                android:textColor="#FFFFFF"
+                android:layout_marginEnd="90dp"
+                android:layout_marginTop="55dp"
+                android:layout_gravity="center"/>
+
+         </androidx.cardview.widget.CardView>
+         <androidx.appcompat.widget.Toolbar
+             android:id="@+id/toolbar"
+             android:layout_width="match_parent"
+             android:layout_height="?android:attr/actionBarSize"
+              card_view:layout_collapseMode="pin"
+             card_view:popupTheme="@style/Theme.AppCompat.NoActionBar"
+             card_view:titleTextColor="#FFFFFF"/>
+
+      </com.google.android.material.appbar.CollapsingToolbarLayout>
+   </com.google.android.material.appbar.AppBarLayout>
+   <androidx.core.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       card_view:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+       android:layout_gravity="center">
+
+   <include layout="@layout/bottom_sheet"
+ />
+   </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
